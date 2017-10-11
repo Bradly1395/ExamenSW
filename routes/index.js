@@ -19,4 +19,31 @@ router.get('/1501199502119',
               }
 );
 
+router.get('/suma',
+              function(req,res,next){
+                console.log(req.params);
+                res.render('suma', {});
+              }
+);
+
+var almecenaNumeros = [];
+
+var numeros_a_sumar = {
+  n1:"",
+  n2:"",
+  suma:null
+};
+
+router.post('/suma', function(req,res,next){
+  console.log(req.body);
+  var sumaNumeros = Object.assign({}, numeros_a_sumar);
+  sumaNumeros.n1 = req.body.txtN1;
+  sumaNumeros.n2 = req.body.txtN2;
+  sumaNumeros.suma = parseInt(sumaNumeros.n1) + parseInt(sumaNumeros.n2);
+  almecenaNumeros.push(sumaNumeros);
+  console.log(almecenaNumeros);
+  var datos = Object.assign({},req.body);
+  datos.numeros = almecenaNumeros;
+  res.render('suma', datos);
+});
 module.exports = router;

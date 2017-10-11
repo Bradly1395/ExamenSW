@@ -1,0 +1,19 @@
+<h1>Suma</h1>
+<br>
+<form class="" action="/suma" method="post">
+  <label>Numero 1</label>
+  <input type="text" name="txtN1" value="{{txtN1}}" placeholder="Numero 1">
+  <br>
+  <label>Numero 2</label>
+  <input type="text" name="txtN2" value="{{txtN2}}" placeholder="Numero 2">
+  <br>
+  <button type="submit" name="btnEnviar">Sumar</button>
+</form>
+<div class="">
+  <ul>
+    {{#each numeros}}
+    <li>{{n1}} + {{n2}} = {{suma}}</li>
+    {{/each}}
+  </ul>
+
+</div>
